@@ -18,8 +18,15 @@ public class CxfConfig {
     @Value("${cxf.path}")
     private String path;
 
+
+    /**
+     * 此方法名称不能为dispatcherServlet
+     * 否则会覆盖默认映射 导致Controller访问不到
+     *
+     * @return
+     */
     @Bean
-    public ServletRegistrationBean dispatcherServlet() {
+    public ServletRegistrationBean disServlet() {
         // 发布服务名称 localhost:8080/cxf
         return new ServletRegistrationBean(new CXFServlet(), path);
 
@@ -30,13 +37,14 @@ public class CxfConfig {
         return new SpringBus();
     }
 
-/*    @Bean
+    @Bean
     public Endpoint syncEmpOrgImpl() {
         // 绑定要发布的服务实现类
         EndpointImpl endpoint = new EndpointImpl(springBus(), new DemoServiceImpl());
         // 接口访问地址
         endpoint.publish("/hello");
         return endpoint;
-    }*/
+    }
+
 
 }

@@ -1,3 +1,4 @@
+
 package com.example.cxfdemo.config;
 
 import com.example.cxfdemo.annotation.AutoPublish;
@@ -8,7 +9,6 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.WebApplicationContext;
-
 import java.util.Map;
 import java.util.Set;
 
@@ -18,6 +18,7 @@ import java.util.Set;
  * @author Sean
  * 2019/10/28
  */
+
 @Configuration
 public class AutoPulibshConfig implements ApplicationRunner {
 
