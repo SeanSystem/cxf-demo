@@ -65,13 +65,13 @@ public final class NIOFileUtils {
             }
             for (File f : files) {
                 if (f.isDirectory()) {
-                    copy(f.getPath(), descPath);
+                    copy2(f.getPath(), descPath);
                 } else {
-                    fileCopy(f.getPath(), descPath + File.separator + f.getName());
+                    fileCopy2(f.getPath(), descPath + File.separator + f.getName());
                 }
             }
         } else {
-            fileCopy(file.getPath(), descPath + File.separator + file.getName());
+            fileCopy2(file.getPath(), descPath + File.separator + file.getName());
         }
     }
 
@@ -90,13 +90,46 @@ public final class NIOFileUtils {
     }
 
 
+    public static void copy3(String srcPath, String descPath) {
+        File file = new File(srcPath);
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            descPath = descPath + File.separator + file.getName();
+            File temp = new File(descPath);
+            if (!temp.exists()) {
+                temp.mkdirs();
+            }
+            for (File f : files) {
+                if (f.isDirectory()) {
+                    copy3(f.getPath(), descPath);
+                } else {
+                    fileCopy3(f.getPath(), descPath + File.separator + f.getName());
+                }
+            }
+        } else {
+            fileCopy3(file.getPath(), descPath + File.separator + file.getName());
+        }
+    }
+
+    public static void fileCopy3(String srcPath, String descPath) {
+        try (FileChannel outChannel = new FileOutputStream(descPath).getChannel();
+             FileChannel inChannel = new FileInputStream(srcPath).getChannel()
+        ) {
+            inChannel.transferTo(0, inChannel.size(),outChannel);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         String src = "F:\\shop-vue";
         String desc = "E:\\";
-        copy(src, desc);
+        copy2(src, desc);
         long end = System.currentTimeMillis();
-        System.out.println("耗时：" + ((end-start)/1000)+"秒");
+        System.out.println("耗时：" + ((end-start))+"ms");
     }
 
 }
