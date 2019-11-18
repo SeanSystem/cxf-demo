@@ -28,7 +28,7 @@ public final class ZipUtils {
      *
      * @param srcPaths 文件路径集合
      * @param response 响应对象
-     * @param fileName 文件名
+     * @param fileName 下载文件文件名
      */
     public static void compressAndDownLoad(List<String> srcPaths, HttpServletResponse response, String fileName) {
         try (
@@ -53,7 +53,7 @@ public final class ZipUtils {
      *
      * @param srcPath  文件路径
      * @param response 响应头
-     * @param fileName 压缩后文件名
+     * @param fileName 下载文件名
      */
     public static void compressAndDownLoad(String srcPath, HttpServletResponse response, String fileName) {
         try (
