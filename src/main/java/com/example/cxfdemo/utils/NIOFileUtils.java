@@ -127,7 +127,7 @@ public final class NIOFileUtils {
         long start = System.currentTimeMillis();
         String src = "F:\\shop-vue";
         String desc = "E:\\";
-        copy2(src, desc);
+        copy(src, desc);
         long end = System.currentTimeMillis();
         System.out.println("耗时：" + ((end-start))+"ms");
     }
