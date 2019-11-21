@@ -21,4 +21,9 @@ public class ZipController {
         ZipUtils.compressAndDownLoad(srcPath, response, fileName);
     }
 
+    @GetMapping("/exc")
+    public void exception(){
+        throw new NullPointerException("异常");
+    }
+
 }
