@@ -12,6 +12,7 @@
     <artifactId>cxf-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>cxf-demo</name>
+    <packaging>war</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -72,6 +73,7 @@
     </dependencies>
 
     <build>
+        <finalName>cxf</finalName>
        <!-- <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -7,5 +7,3 @@ cxf:
 logging:
   level:
     com.gisquest.jsyd.service.dao: debug
-  config:
-    classpath: logback.xml

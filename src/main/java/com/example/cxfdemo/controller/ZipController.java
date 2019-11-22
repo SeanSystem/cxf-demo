@@ -3,6 +3,7 @@ package com.example.cxfdemo.controller;
 import com.example.cxfdemo.utils.ZipUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -15,14 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 public class ZipController {
 
     @GetMapping("/down")
-    public void downZip(HttpServletResponse response) {
-        String srcPath = "F:\\W3school";
-        String fileName = "测试";
+    public void downZip(String srcPath, String fileName, HttpServletResponse response) {
         ZipUtils.compressAndDownLoad(srcPath, response, fileName);
     }
 
     @GetMapping("/exc")
-    public void exception(){
+    public void exception() {
         throw new NullPointerException("异常");
     }
 
