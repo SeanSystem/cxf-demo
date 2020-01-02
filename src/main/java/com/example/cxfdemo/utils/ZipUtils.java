@@ -159,9 +159,8 @@ public final class ZipUtils {
      * @param descPath 文件压缩后路径
      */
     public static void compressFile(ZipOutputStream zos, File file, String descPath) {
-        try (FileInputStream fis = new FileInputStream(file)) {
+        try (FileChannel channel = new FileInputStream(file).getChannel()) {
             zos.putNextEntry(new ZipEntry(descPath + file.getName()));
-            FileChannel channel = fis.getChannel();
             ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
             int read = channel.read(byteBuffer);
             while (read != -1) {
