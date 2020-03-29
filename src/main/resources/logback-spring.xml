@@ -22,7 +22,7 @@
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
-            <fileNamePattern>F:/github/logs/info.%d.log</fileNamePattern>
+            <fileNamePattern>E:\学习文件\github\info.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 
@@ -36,7 +36,7 @@
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--根据日期自动创建本地文件夹-->
-            <fileNamePattern>F:/github/logs/error.%d.log</fileNamePattern>
+            <fileNamePattern>E:\学习文件\github\error.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
     <!--引入日志配置，ROOT下整个项目都适用-->

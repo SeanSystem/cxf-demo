@@ -4,5 +4,5 @@ server:
 cxf:
   path: /cxf/*
 
-logging:
-  level: debug
+#logging:
+ # level: debug
